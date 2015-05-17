@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app 
+		xmlns="http://java.sun.com/xml/ns/javaee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
+		version="2.5">
+
+    <display-name>ashosborne.com shopping cart tutorial part 1</display-name>
+
+    <!-- The path to the spring configuration xml -->
+    <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>
+	    /WEB-INF/conf/web-application-config.xml
+	</param-value>
+    </context-param>
+
+    <!-- Spring web application context class -->
+    <listener>
+	<listener-class>
+          org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- DispatcherServlet for Spring Model View Controller -->
+    <!-- Handle both MVC and webflow requests -->
+    <servlet>
+	<servlet-name>springmvc</servlet-name>
+	<servlet-class>
+             org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<init-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value></param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Make the dispatcher listens to the path "/" -->
+    <servlet-mapping>
+	<servlet-name>springmvc</servlet-name>
+	<url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>
